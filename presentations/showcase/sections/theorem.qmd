@@ -1,0 +1,18 @@
+# Box Style Theorem Example
+
+::: {.box .theorem-box}
+::: {.title}
+Theorem (Lipschitz Gradient Descent Step)
+:::
+::: {.content}
+Let $f: \setR^n \rightarrow \setR$ be differentiable with $L$-Lipschitz gradient. Then for any $x, y \in \setR^n$,
+
+$$
+f(y) \le f(x) + \nabla f(x)^\top (y-x) + \frac{L}{2}\norm{y-x}^2.
+$$
+
+Choosing $y = x - \frac{1}{L}\nabla f(x)$ gives a guaranteed descent step.
+:::
+:::
+
+

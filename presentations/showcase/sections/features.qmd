@@ -1,0 +1,48 @@
+# Quarto Reveal Feature Sampler
+
+::: {.cards-2 .tight}
+::: {.card}
+**Incremental list**
+
+::: {.incremental}
+- First point appears
+- Second point appears
+- Third point appears
+:::
+:::
+
+::: {.card}
+**Fragments**
+
+<span class="fragment">Fragment 1</span>
+
+<span class="fragment" data-fragment-index="2">Fragment 2</span>
+
+<span class="fragment" data-fragment-index="3">Fragment 3</span>
+:::
+:::
+
+```js {code-line-numbers="1|2-3|4"}
+const values = [2, 4, 6, 8];
+const scaled = values.map((x) => x / 2);
+const avg = scaled.reduce((a, b) => a + b, 0) / scaled.length;
+console.log(avg);
+```
+
+```{python}
+#| echo: true
+#| output: true
+#| code-line-numbers: "1|2-3|4"
+values = [2, 4, 6, 8]
+scaled = [x / 2 for x in values]
+avg = sum(scaled) / len(scaled)
+avg
+```
+
+::: {.meta}
+The executable block above runs during render and uses reveal line-highlighting syntax from the Quarto reveal demo style.
+:::
+
+::: {.notes}
+Point out that this slide demonstrates incremental reveals, fragments, render-time executed code, speaker notes, and code line highlighting.
+:::

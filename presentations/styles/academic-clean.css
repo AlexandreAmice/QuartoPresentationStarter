@@ -1,0 +1,13 @@
+@import url('./neutral-academic.css');
+
+:root {
+  --brand: #0d5f8b;
+  --brand-soft: #5d9dbb;
+  --accent: #2e6f4a;
+  --paper: #f7fbff;
+  --line: #c3d8e5;
+}
+
+.reveal-viewport {
+  background: radial-gradient(circle at 8% 12%, #ffffff 0%, #eef6fb 66%);
+}

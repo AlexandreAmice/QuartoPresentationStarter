@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Embed</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Manrope", "Segoe UI", sans-serif;
+      background: linear-gradient(145deg, #f3f8fb 0%, #e8f1f6 100%);
+      color: #1f2f3a;
+    }
+    .panel {
+      height: 100vh;
+      display: grid;
+      place-content: center;
+      gap: 0.8rem;
+      text-align: center;
+      padding: 1rem;
+    }
+    .kpi {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #0a5b65;
+    }
+    .spark {
+      width: 260px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #0d6a74 0%, #25a0ad 50%, #b65b2b 100%);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scaleX(0.7); opacity: 0.55; }
+      50% { transform: scaleX(1.0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <div>Embedded dashboard mock</div>
+    <div class="kpi">98.7%</div>
+    <div class="spark"></div>
+  </div>
+</body>
+</html>

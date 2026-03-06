@@ -1,0 +1,33 @@
+# Quarto cache and temp artifacts
+.quarto/
+*_cache/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# LaTeX build artifacts
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.dvi
+
+# OS/editor temp files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+
+# Quarto rendered outputs (generated)
+presentations/**/presentation.html
+presentations/**/presentation_files/
+presentations/**/presentation.edit.html
+presentations/**/presentation.edit_files/
+
+/.quarto/
+**/*.quarto_ipynb

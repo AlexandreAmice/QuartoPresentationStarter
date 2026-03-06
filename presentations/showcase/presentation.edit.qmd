@@ -1,0 +1,43 @@
+---
+pagetitle: "Showcase Deck (Edit Mode)"
+asset-prefix: ../../assets
+bibliography: ../../refs/references.bib
+citations-hover: true
+reference-location: document
+jupyter: python3
+
+format:
+  revealjs:
+    theme: [default]
+    slide-number: c/t
+    progress: true
+    hash: true
+    controls: true
+    navigation-mode: vertical
+    transition: none
+    background-transition: none
+    slide-level: 1
+    width: 1400
+    height: 900
+    margin: 0.05
+    center: false
+    css:
+      - ../styles/neutral-academic.css
+      - showcase.css
+    include-before-body:
+      - ../styles/presentation-macros.html
+      - ../styles/reveal-preview-restore-slide.html
+    code-copy: true
+    html-math-method: mathjax
+    chalkboard: false
+    menu: false
+    auto-animate: false
+---
+
+<!-- This include line is managed by scripts/presentation_edit_preview.sh -->
+{{< include sections/layout.qmd >}}
+
+# References
+
+::: {#refs}
+:::

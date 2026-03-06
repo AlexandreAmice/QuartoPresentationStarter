@@ -1,0 +1,7 @@
+project:
+  type: default
+  execute-dir: project
+  render:
+    - presentations/quickstart/presentation.qmd
+  resources:
+    - assets/**

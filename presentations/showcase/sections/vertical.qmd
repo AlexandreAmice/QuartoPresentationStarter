@@ -1,0 +1,42 @@
+# Vertical Slides Example
+
+## Vertical: Overview
+
+::: {.card}
+Use `↓` / `↑` to move inside this stack, and `→` / `←` to move across top-level slides.
+:::
+
+## Vertical: Design Notes
+
+::: {.cards-2 .tight}
+::: {.card .compact}
+**Why use vertical stacks**
+
+- Keep one topic grouped under a single horizontal chapter.
+- Drill into detail without flattening the whole narrative.
+:::
+
+::: {.card .compact}
+**Good use cases**
+
+- One summary slide + two detail slides.
+- Progressive build of a concept.
+- Alternate views of the same figure or data.
+:::
+:::
+
+## Vertical: Concrete Pattern
+
+```markdown
+# Topic Cluster
+
+## Detail A
+Content for the first vertical child slide.
+
+## Detail B
+Content for the second vertical child slide.
+```
+
+::: {.meta}
+This stack is rendered from heading structure with `slide-level: 1`, no raw HTML sections required.
+:::

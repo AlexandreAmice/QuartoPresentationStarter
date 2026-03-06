@@ -1,0 +1,100 @@
+<script>
+// Preserve reveal.js position across full-page reloads.
+(function () {
+  var hashKey = "reveal-last-hash:" + window.location.pathname;
+  var indexKey = "reveal-last-indices:" + window.location.pathname;
+
+  function getSaved(key) {
+    try {
+      return window.localStorage.getItem(key);
+    } catch (_err) {
+      return null;
+    }
+  }
+
+  function setSaved(key, value) {
+    try {
+      window.localStorage.setItem(key, value);
+    } catch (_err) {
+      // Ignore storage failures.
+    }
+  }
+
+  function saveHash() {
+    var hash = window.location.hash || "";
+    if (hash && hash !== "#" && hash !== "#/") {
+      setSaved(hashKey, hash);
+    }
+  }
+
+  function restoreHashEarly() {
+    var current = window.location.hash || "";
+    if (!current || current === "#" || current === "#/") {
+      var saved = getSaved(hashKey);
+      if (saved) {
+        window.location.hash = saved;
+      }
+    }
+  }
+
+  function saveIndices() {
+    if (!window.Reveal || typeof window.Reveal.getIndices !== "function") {
+      return;
+    }
+    setSaved(indexKey, JSON.stringify(window.Reveal.getIndices()));
+  }
+
+  function restoreIndices() {
+    if (!window.Reveal || typeof window.Reveal.slide !== "function") {
+      return;
+    }
+    var raw = getSaved(indexKey);
+    if (!raw) {
+      return;
+    }
+    try {
+      var idx = JSON.parse(raw);
+      if (idx && Number.isFinite(idx.h)) {
+        window.Reveal.slide(idx.h || 0, idx.v || 0, idx.f);
+      }
+    } catch (_err) {
+      // Ignore parsing failures.
+    }
+  }
+
+  function hookReveal() {
+    if (!window.Reveal || typeof window.Reveal.on !== "function") {
+      return false;
+    }
+    window.Reveal.on("ready", function () {
+      if (!window.location.hash || window.location.hash === "#" || window.location.hash === "#/") {
+        restoreIndices();
+      }
+      saveHash();
+      saveIndices();
+    });
+    window.Reveal.on("slidechanged", function () {
+      saveHash();
+      saveIndices();
+    });
+    window.addEventListener("beforeunload", function () {
+      saveHash();
+      saveIndices();
+    });
+    return true;
+  }
+
+  restoreHashEarly();
+
+  if (!hookReveal()) {
+    var poll = window.setInterval(function () {
+      if (hookReveal()) {
+        window.clearInterval(poll);
+      }
+    }, 100);
+    window.setTimeout(function () {
+      window.clearInterval(poll);
+    }, 10000);
+  }
+})();
+</script>

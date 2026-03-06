@@ -1,0 +1,19 @@
+# Citations + Math
+
+::: {.cards-2}
+::: {.card}
+**Citations in slides**
+
+- Reproducible docs: @xie2018rmarkdown
+- Visualization reference: @wickham2016ggplot2
+- Deployment consistency: @merkel2014docker
+:::
+
+::: {.card}
+**Math macros from shared include**
+
+$$
+\bx^* = \argmin_{\bx \in \setR^n} \frac{1}{2}\norm{\bA\bx-\by}^2
+$$
+:::
+:::

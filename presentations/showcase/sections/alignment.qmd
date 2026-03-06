@@ -1,0 +1,28 @@
+# Alignment Examples
+
+::: {.cards-3 .tight}
+::: {.card .align-left}
+**Left aligned**
+
+Text starts from the left edge.
+
+- item one
+- item two
+:::
+
+::: {.card .align-center}
+**Centered**
+
+This block is centered for emphasis.
+
+`centered code`
+:::
+
+::: {.card .align-right}
+**Right aligned**
+
+Useful for callouts or side annotations.
+
+`x -> y`
+:::
+:::

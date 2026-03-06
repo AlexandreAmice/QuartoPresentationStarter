@@ -1,0 +1,17 @@
+# Embed Examples: Iframe and Video
+
+::: {.cards-2 .tight}
+::: {.card}
+**Iframe embed**
+
+```{=html}
+<iframe src="{{< meta asset-prefix >}}/embeds/mini_dashboard.html" class="embed-demo" loading="lazy" title="Embedded mini dashboard"></iframe>
+```
+:::
+
+::: {.card}
+**Video embed**
+
+![]({{< meta asset-prefix >}}/videos/demo_loop.mp4){.video-demo data-autoplay="true" muted="true" loop="true" controls="true"}
+:::
+:::

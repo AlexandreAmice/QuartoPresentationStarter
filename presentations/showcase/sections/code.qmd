@@ -1,0 +1,46 @@
+# Code Block + Fragments {.fit-code}
+
+## Workflow Commands
+
+```bash
+# Rebuild MathJax macro include
+python3 scripts/generate_math_macros.py \
+  sty_files/PresentationShortcuts.sty \
+  --output presentations/styles/presentation-macros.html
+
+# Regenerate standalone tikz assets
+scripts/regenerate_asset_svgs.sh assets/tikz
+
+# Preview one section from showcase edit deck
+scripts/presentation_edit_preview.sh presentations/showcase code --no-browser --port 4305
+```
+
+::: {.code-note .fragment}
+Use `presentation.edit.qmd` for focused iteration and keep `presentation.qmd` as canonical deck assembly.
+:::
+
+## Executable Code (Python)
+
+```{python}
+#| echo: true
+#| fig-width: 10
+#| fig-height: 4.5
+#| cache: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 2 * np.pi, 300)
+y = np.sin(x) * np.exp(-0.06 * x)
+
+fig, ax = plt.subplots()
+ax.plot(x, y, linewidth=3, color="#2C7FB8")
+ax.set_title("Damped Sine Wave")
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+ax.grid(True, alpha=0.3)
+plt.show()
+```
+
+::: {.meta}
+This follows the Quarto Reveal executable-code pattern: Python runs during render and output is embedded in the slide.
+:::

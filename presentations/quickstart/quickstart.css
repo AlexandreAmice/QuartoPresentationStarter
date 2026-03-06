@@ -1,0 +1,28 @@
+.hero {
+  margin-bottom: 0.7rem;
+}
+
+.quick-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.38rem;
+}
+
+.quick-badge {
+  border: 1px solid #b7cbd6;
+  border-radius: 999px;
+  padding: 0.16em 0.6em;
+  font-size: 0.62em;
+  font-weight: 700;
+  color: #275062;
+  background: linear-gradient(180deg, #ffffff 0%, #edf5f9 100%);
+  box-shadow: 0 4px 10px rgba(15, 56, 76, 0.1);
+}
+
+.asset-frame {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f8fa 100%);
+  border: 1px solid #c6d4dd;
+  border-radius: 12px;
+  padding: 0.5rem;
+  box-shadow: 0 10px 20px rgba(9, 34, 47, 0.1);
+}

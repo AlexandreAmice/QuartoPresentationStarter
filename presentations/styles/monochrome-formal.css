@@ -1,0 +1,17 @@
+@import url('./neutral-academic.css');
+
+:root {
+  --brand: #2f2f2f;
+  --brand-soft: #5c5c5c;
+  --accent: #4f4f4f;
+  --ink: #141414;
+  --ink-soft: #3f3f3f;
+  --paper: #f3f3f3;
+  --paper-alt: #fcfcfc;
+  --line: #d0d0d0;
+  --shadow: none;
+}
+
+.reveal-viewport {
+  background: linear-gradient(180deg, #f8f8f8 0%, #f1f1f1 100%);
+}

@@ -1,0 +1,15 @@
+# Showcase Deck {.title-slide}
+
+::: {.hero}
+<p class="hero-head">Feature-rich reveal.js + Quarto workflow</p>
+<p class="hero-sub">Intended as a reusable reference for structure, styling, and tooling.</p>
+:::
+
+::: {.badge-row}
+<span class="badge">fragments</span>
+<span class="badge">auto-animate</span>
+<span class="badge">mermaid</span>
+<span class="badge">code copy</span>
+<span class="badge">citations</span>
+<span class="badge">asset regeneration</span>
+:::

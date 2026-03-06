@@ -1,0 +1,14 @@
+## Math With Shared Macros
+
+::: {.card}
+Given $\bA \in \setR^{n \times n}$ and $\bx \in \setR^n$, define
+$$
+\calL(\bx) = \frac{1}{2}\norm{\bA\bx-\by}^2.
+$$
+
+Then
+$$
+\bx^* = \argmin_{\bx \in \setR^n} \calL(\bx), \quad
+\text{with normal equations } \bA^\top\bA\bx = \bA^\top\by.
+$$
+:::

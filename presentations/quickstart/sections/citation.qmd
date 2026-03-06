@@ -1,0 +1,9 @@
+## Citations
+
+::: {.card}
+This deck supports bibliography-backed citations directly in slides.
+
+- TeX foundations: @knuth1984texbook
+- Early LaTeX tooling: @lamport1986latex
+- Reproducible writing workflows: @xie2018rmarkdown
+:::

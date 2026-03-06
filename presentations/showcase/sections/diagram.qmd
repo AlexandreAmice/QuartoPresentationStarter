@@ -1,0 +1,13 @@
+# Mermaid Example
+
+```{mermaid}
+flowchart LR
+  A[Section Sources] --> B[quarto inspect includeMap]
+  B --> C[watch includes]
+  C --> D[touch root qmd]
+  D --> E[preview refresh]
+```
+
+::: {.meta}
+This mirrors how `scripts/quarto_preview_watch_includes.sh` keeps preview sessions responsive while editing included section files.
+:::

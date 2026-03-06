@@ -1,0 +1,20 @@
+## Agenda
+
+::: {.cards-2}
+::: {.card}
+**What you edit first**
+
+- `presentation.qmd`
+- `sections/*.qmd`
+- `quickstart.css`
+:::
+
+::: {.card}
+**Workflow helpers**
+
+- Include-aware preview
+- Single-section edit mode
+- Macros and asset regeneration scripts
+- Quarto docs: [quarto.org/docs/presentations](https://quarto.org/docs/presentations/)
+:::
+:::

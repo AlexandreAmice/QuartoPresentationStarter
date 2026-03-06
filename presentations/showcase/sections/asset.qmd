@@ -1,0 +1,9 @@
+# Reusable Asset Embed
+
+::: {.media-frame}
+![]({{< meta asset-prefix >}}/tikz/sample_diagram.svg){width="84%" .center-x}
+:::
+
+::: {.callout}
+Update the figure source in `assets/tikz/sample_diagram.tex` and regenerate with `scripts/regenerate_asset_svgs.sh assets/tikz`.
+:::

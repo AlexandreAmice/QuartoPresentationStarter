@@ -1,0 +1,40 @@
+---
+pagetitle: "Quickstart Deck (Edit Mode)"
+asset-prefix: ../../assets
+bibliography: ../../refs/references.bib
+citations-hover: true
+reference-location: document
+
+format:
+  revealjs:
+    theme: [default]
+    slide-number: c/t
+    progress: true
+    hash: true
+    controls: true
+    navigation-mode: vertical
+    transition: none
+    background-transition: none
+    width: 1400
+    height: 900
+    margin: 0.05
+    center: false
+    css:
+      - ../styles/neutral-academic.css
+      - quickstart.css
+    include-before-body:
+      - ../styles/presentation-macros.html
+      - ../styles/reveal-preview-restore-slide.html
+    code-copy: false
+    html-math-method: mathjax
+    chalkboard: false
+    menu: false
+---
+
+<!-- This include line is managed by scripts/presentation_edit_preview.sh -->
+{{< include sections/agenda.qmd >}}
+
+## References
+
+::: {#refs}
+:::

@@ -1,0 +1,9 @@
+## Regenerated Asset Example
+
+::: {.asset-frame}
+![]({{< meta asset-prefix >}}/tikz/sample_diagram.svg){width="92%" .center-x}
+:::
+
+::: {.meta}
+Source file: `assets/tikz/sample_diagram.tex` -> regenerate with `scripts/regenerate_asset_svgs.sh assets/tikz`
+:::

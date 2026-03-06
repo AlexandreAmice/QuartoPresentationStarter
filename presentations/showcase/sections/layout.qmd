@@ -1,0 +1,32 @@
+# Layout Patterns
+
+::: {.cards-3 .tight}
+::: {.card .compact}
+**Structured narrative**
+
+- Section include files
+- Shared style + deck overrides
+- Small, composable slide units
+:::
+
+
+::: {.card .compact}
+**Reusable commands**
+
+- `quarto preview`
+- include-aware watcher
+- section-focused edit mode
+- Docs: [quarto.org/docs/presentations/revealjs](https://quarto.org/docs/presentations/revealjs/)
+:::
+
+::: {.card .compact}
+**Math + references**
+
+- Generated MathJax macros
+- BibTeX citations with hover
+- Optional refs-slide suppression
+:::
+:::
+
+
+You can also feel **free** to use *arbitrary* markdown directly in the slide content.

@@ -1,0 +1,82 @@
+<script>
+// Keep bibliography entries for citation hover, while hiding a standalone refs slide.
+(function () {
+  var hiddenStoreId = "citation-preview-store";
+
+  function ensureHiddenStore() {
+    var store = window.document.getElementById(hiddenStoreId);
+    if (store) {
+      return store;
+    }
+    store = window.document.createElement("div");
+    store.id = hiddenStoreId;
+    store.style.display = "none";
+    window.document.body.appendChild(store);
+    return store;
+  }
+
+  function sectionHasContentBesidesRefs(section) {
+    var clone = section.cloneNode(true);
+    var cloneRefs = clone.querySelector("#refs");
+    if (cloneRefs && cloneRefs.parentElement) {
+      cloneRefs.parentElement.removeChild(cloneRefs);
+    }
+    var text = (clone.textContent || "").replace(/\s+/g, "");
+    if (text.length > 0) {
+      return true;
+    }
+    return Boolean(clone.querySelector("img, svg, video, canvas, table, pre, code, math"));
+  }
+
+  function detachReferencesSlide() {
+    var refs = window.document.getElementById("refs");
+    if (!refs) {
+      return;
+    }
+
+    var refsSection = refs.closest(".slides section");
+    var store = ensureHiddenStore();
+    if (refs.parentElement !== store) {
+      store.appendChild(refs);
+    }
+
+    if (refsSection && refsSection.parentElement && !sectionHasContentBesidesRefs(refsSection)) {
+      refsSection.parentElement.removeChild(refsSection);
+      if (window.Reveal && typeof window.Reveal.sync === "function") {
+        window.Reveal.sync();
+      }
+    }
+  }
+
+  function bindRevealReadyHook() {
+    if (!window.Reveal || typeof window.Reveal.on !== "function") {
+      return false;
+    }
+    window.Reveal.on("ready", detachReferencesSlide);
+    return true;
+  }
+
+  function init() {
+    detachReferencesSlide();
+    window.setTimeout(detachReferencesSlide, 0);
+    window.setTimeout(detachReferencesSlide, 250);
+  }
+
+  if (window.document.readyState === "loading") {
+    window.document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+  if (!bindRevealReadyHook()) {
+    var poll = window.setInterval(function () {
+      if (bindRevealReadyHook()) {
+        window.clearInterval(poll);
+      }
+    }, 100);
+    window.setTimeout(function () {
+      window.clearInterval(poll);
+    }, 10000);
+  }
+})();
+</script>

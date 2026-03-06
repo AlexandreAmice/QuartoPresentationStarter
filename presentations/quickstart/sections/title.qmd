@@ -1,0 +1,13 @@
+## Quickstart Template {.title-slide}
+
+::: {.hero}
+<p class="hero-head">Quarto + reveal.js in a reusable starter deck</p>
+<p class="hero-sub">Duplicate this folder and start writing slides immediately.</p>
+:::
+
+::: {.quick-badges}
+<span class="quick-badge">section includes</span>
+<span class="quick-badge">math macros</span>
+<span class="quick-badge">citations</span>
+<span class="quick-badge">asset pipeline</span>
+:::

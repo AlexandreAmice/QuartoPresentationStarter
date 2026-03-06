@@ -1,0 +1,113 @@
+---
+# Browser tab title for the rendered HTML deck.
+pagetitle: "Showcase Deck"
+
+# Base path used by `{{< meta asset-prefix >}}` in section files.
+asset-prefix: ../../assets
+
+# BibTeX source for `@citation` keys in slides.
+bibliography: ../../refs/references.bib
+
+# Show citation tooltips on hover in reveal.js output.
+citations-hover: true
+
+# Insert references where `::: {#refs}` appears in this document.
+reference-location: document
+
+# Kernel used for executable code chunks in this deck.
+jupyter: python3
+
+format:
+  revealjs:
+    # Keep reveal's default core theme; custom CSS handles visual identity.
+    theme: [default]
+
+    # Slide number format: current/total.
+    slide-number: c/t
+
+    # Show horizontal progress bar at bottom.
+    progress: true
+
+    # Keep URL hash synced to current slide (deep linking + reload position).
+    hash: true
+
+    # Show navigation arrows.
+    controls: true
+
+    # Reveal navigation mode (`vertical` improves up/down stack behavior).
+    navigation-mode: vertical
+
+    # Slide transition style between top-level slides.
+    transition: slide
+
+    # Transition style for slide backgrounds.
+    background-transition: fade
+
+    # Canvas width in pixels (16:10-ish with height below).
+    width: 1400
+
+    # Canvas height in pixels.
+    height: 900
+
+    # Whitespace margin around slide content (fraction of slide size).
+    margin: 0.05
+
+    # Disable global vertical centering; content flows from top.
+    center: false
+
+    # Shared theme first, then deck-specific overrides.
+    css:
+      - ../styles/neutral-academic.css
+      - showcase.css
+
+    # HTML snippets injected before slide body content.
+    include-before-body:
+      # Generated MathJax macro definitions from LaTeX shortcuts.
+      - ../styles/presentation-macros.html
+      # Preview helper to restore last viewed slide on reload.
+      - ../styles/reveal-preview-restore-slide.html
+
+    # Show copy button on code blocks in showcase deck.
+    code-copy: true
+
+    # Use MathJax for LaTeX math rendering in HTML.
+    html-math-method: mathjax
+
+    # Enable reveal chalkboard/annotation plugin.
+    chalkboard: true
+
+    # Enable reveal slide menu plugin.
+    menu: true
+
+    # Enable reveal auto-animate transitions for matching elements.
+    auto-animate: true
+---
+
+{{< include sections/title.qmd >}}
+
+{{< include sections/layout.qmd >}}
+
+{{< include sections/vertical.qmd >}}
+
+{{< include sections/animate.qmd >}}
+
+{{< include sections/diagram.qmd >}}
+
+{{< include sections/media.qmd >}}
+
+{{< include sections/theorem.qmd >}}
+
+{{< include sections/alignment.qmd >}}
+
+{{< include sections/features.qmd >}}
+
+{{< include sections/code.qmd >}}
+
+{{< include sections/citations.qmd >}}
+
+{{< include sections/asset.qmd >}}
+
+# References
+
+::: {#refs}
+:::

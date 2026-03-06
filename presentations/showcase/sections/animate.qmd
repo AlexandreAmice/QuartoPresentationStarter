@@ -1,0 +1,37 @@
+# Auto-Animate Pipeline {auto-animate=true auto-animate-id="pipeline" auto-animate-unmatched="false"}
+
+::: {.cards-2}
+::: {.card data-id="stage-author"}
+**1. Author**
+
+Write section content in `sections/*.qmd`.
+:::
+
+::: {.card data-id="stage-render"}
+**2. Render**
+
+Quarto composes includes into a reveal deck.
+:::
+:::
+
+# Auto-Animate Pipeline {auto-animate=true auto-animate-id="pipeline" auto-animate-unmatched="false"}
+
+::: {.cards-3}
+::: {.card data-id="stage-author"}
+**1. Author**
+
+Write section content in `sections/*.qmd`.
+:::
+
+::: {.card data-id="stage-render"}
+**2. Render**
+
+Quarto composes includes into a reveal deck.
+:::
+
+::: {.card data-id="stage-present"}
+**3. Present**
+
+Navigate with hash-based deep links and speaker tools.
+:::
+:::
