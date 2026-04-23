@@ -3,9 +3,11 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+# shellcheck source=compat.sh
+source "${SCRIPT_DIR}/compat.sh"
 
 ASSETS_INPUT="${1:-assets}"
-ASSETS_DIR="$(realpath -m "${REPO_ROOT}/${ASSETS_INPUT}")"
+ASSETS_DIR="$(abs_path "${REPO_ROOT}/${ASSETS_INPUT}")"
 
 if [[ ! -d "${ASSETS_DIR}" ]]; then
   echo "ERROR: assets directory not found: ${ASSETS_INPUT}" >&2
@@ -28,9 +30,12 @@ fi
 
 echo "Using SVG backend: ${SVG_BACKEND}"
 
-ASSETS_REL="$(realpath --relative-to="${REPO_ROOT}" "${ASSETS_DIR}")"
+ASSETS_REL="$(rel_path "${REPO_ROOT}" "${ASSETS_DIR}")"
 
-mapfile -t TEX_FILES < <(
+TEX_FILES=()
+while IFS= read -r line; do
+  TEX_FILES+=( "${line}" )
+done < <(
   cd "${REPO_ROOT}" && find "${ASSETS_REL}" -type f -name '*.tex' | LC_ALL=C sort
 )
 

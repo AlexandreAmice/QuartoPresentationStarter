@@ -3,6 +3,8 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+# shellcheck source=compat.sh
+source "${SCRIPT_DIR}/compat.sh"
 
 usage() {
   cat <<USAGE
@@ -85,7 +87,10 @@ if [[ -e "${TARGET_DIR}" ]]; then
 fi
 
 if [[ -z "${TITLE}" ]]; then
-  TITLE="$(echo "${DECK_NAME}" | tr '_-' ' ' | sed -E 's/(^|[[:space:]])([[:alpha:]])/\1\U\2/g')"
+  TITLE="$(echo "${DECK_NAME}" | tr '_-' ' ' | awk '{
+    for (i=1; i<=NF; i++) $i = toupper(substr($i,1,1)) substr($i,2)
+    print
+  }')"
 fi
 
 cp -R "${TEMPLATE_DIR}" "${TARGET_DIR}"
@@ -99,13 +104,13 @@ fi
 for qmd in "${TARGET_DIR}/presentation.qmd" "${TARGET_DIR}/presentation.edit.qmd"; do
   SAFE_TITLE="$(printf '%s' "${TITLE}" | sed -e 's/[\\/&]/\\&/g')"
   SAFE_DECK_NAME="$(printf '%s' "${DECK_NAME}" | sed -e 's/[\\/&]/\\&/g')"
-  sed -i "s/Quickstart Deck/${SAFE_TITLE}/g" "${qmd}"
-  sed -i "s/quickstart\.css/${SAFE_DECK_NAME}.css/g" "${qmd}"
+  sed_inplace "s/Quickstart Deck/${SAFE_TITLE}/g" "${qmd}"
+  sed_inplace "s/quickstart\.css/${SAFE_DECK_NAME}.css/g" "${qmd}"
 done
 
 if [[ -f "${TARGET_DIR}/sections/title.qmd" ]]; then
   SAFE_TITLE="$(printf '%s' "${TITLE}" | sed -e 's/[\\/&]/\\&/g')"
-  sed -i "s/Quickstart Template/${SAFE_TITLE}/g" "${TARGET_DIR}/sections/title.qmd"
+  sed_inplace "s/Quickstart Template/${SAFE_TITLE}/g" "${TARGET_DIR}/sections/title.qmd"
 fi
 
 README_FILE="${TARGET_DIR}/README.md"
