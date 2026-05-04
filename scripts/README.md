@@ -7,8 +7,8 @@ This file documents scripts used by the Quarto presentation workflow.
 | Script | Purpose | Writes/Modifies Files | Required Tools |
 |---|---|---|---|
 | `generate_math_macros.py` | Extract TeX-style macros and generate a MathJax include file | Writes the output include file | `python3` |
-| `quarto_preview_watch_includes.sh` | Run `quarto preview` and auto-refresh when `{{< include ... >}}` dependencies change | Touches target `.qmd` to trigger refresh | `quarto`, `jq`, `inotifywait` |
-| `presentation_edit_preview.sh` | Preview one section from `presentation.edit.qmd` | Rewrites active include line in `presentation.edit.qmd` | `quarto`, `jq`, `inotifywait`, `rg`, `find`, `sed` |
+| `quarto_preview_watch_includes.sh` | Run `quarto preview` and auto-refresh when `{{< include ... >}}` dependencies change | Touches target `.qmd` to trigger refresh | `quarto`, `jq`, `fswatch` (macOS) or `inotifywait` (Linux) |
+| `presentation_edit_preview.sh` | Preview one section from `presentation.edit.qmd` | Rewrites active include line in `presentation.edit.qmd` | `quarto`, `jq`, `fswatch` or `inotifywait`, `rg`, `find`, `sed` |
 | `regenerate_asset_svgs.sh` | Rebuild standalone `.tex` assets into `.svg` (via PDF) | Writes/overwrites `.pdf` and `.svg` beside source | `latexmk` and (`inkscape` or `dvisvgm`) |
 | `new_presentation.sh` | Scaffold a new deck from `presentations/quickstart` | Creates a new deck folder and optionally updates `_quarto.yml` | `bash`, `cp`, `mv`, `sed`, `awk`, `rg` |
 

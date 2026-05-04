@@ -27,7 +27,9 @@ Rendered outputs are intentionally not committed (`presentation.html`, `presenta
 ### Recommended (authoring workflow)
 
 - `jq`
-- `inotifywait` (`inotify-tools` package)
+- A file watcher:
+  - Linux: `inotifywait` (`inotify-tools` package)
+  - macOS: `fswatch` (`brew install fswatch`)
 - `rg` (ripgrep)
 
 ### Optional (specific features)

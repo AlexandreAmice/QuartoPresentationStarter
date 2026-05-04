@@ -4,6 +4,8 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 WATCH_SCRIPT="${REPO_ROOT}/scripts/quarto_preview_watch_includes.sh"
+# shellcheck source=compat.sh
+source "${SCRIPT_DIR}/compat.sh"
 
 usage() {
   cat <<USAGE
@@ -44,10 +46,18 @@ if [[ ! -x "${WATCH_SCRIPT}" ]]; then
   exit 1
 fi
 
-mapfile -t SECTIONS < <(
-  find "${SECTIONS_DIR}" -maxdepth 1 -type f -name '*.qmd' -printf '%f\n' \
-    | sed 's/\.qmd$//' \
-    | LC_ALL=C sort
+SECTIONS=()
+while IFS= read -r line; do
+  SECTIONS+=( "${line}" )
+done < <(
+  {
+    shopt -s nullglob
+    for qmd in "${SECTIONS_DIR}"/*.qmd; do
+      [[ -f "${qmd}" ]] || continue
+      name="${qmd##*/}"
+      printf '%s\n' "${name%.qmd}"
+    done
+  } | LC_ALL=C sort
 )
 
 if [[ ${#SECTIONS[@]} -eq 0 ]]; then
@@ -86,7 +96,7 @@ if [[ "${is_valid_section}" != "true" ]]; then
   exit 1
 fi
 
-sed -i -E \
+sed_inplace -E \
   "s#\{\{< include sections/[^[:space:]]+\.qmd >\}\}#{{< include sections/${SECTION}.qmd >}}#g" \
   "${EDIT_QMD}"
 
