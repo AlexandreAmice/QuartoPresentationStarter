@@ -16,6 +16,9 @@ reference-location: document
 
 format:
   revealjs:
+    revealjs-plugins:
+      - amice/pointer-tail
+
     # Keep reveal's default core theme; custom CSS handles visual identity.
     theme: [default]
 
@@ -63,6 +66,17 @@ format:
       - ../styles/presentation-macros.html
       # Preview helper to restore last viewed slide on reload.
       - ../styles/reveal-preview-restore-slide.html
+      # Laser pointer settings. Press `q` while presenting to toggle it.
+      - text: |
+          <script>
+            window.RevealPointerTailOptions = {
+              pointerSize: 12,
+              trailLength: 20,
+              trailFalloff: 0.2,
+              trailTaper: 0.01,
+              headOpacity: 0.78
+            };
+          </script>
 
     # Do not show copy button on code blocks in quickstart deck.
     code-copy: false

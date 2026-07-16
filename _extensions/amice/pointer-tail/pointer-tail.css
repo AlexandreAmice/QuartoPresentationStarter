@@ -1,0 +1,36 @@
+.reveal-pointer-tail-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 160ms ease-out;
+}
+
+.reveal-pointer-tail-overlay.is-active {
+  opacity: 1;
+}
+
+.reveal-pointer-tail-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: currentColor;
+  color: inherit;
+  opacity: 0;
+  will-change: transform, opacity;
+  box-shadow: 0 0 3px currentColor, 0 0 7px currentColor;
+}
+
+.pointer-tail-hidden-cursor,
+.pointer-tail-hidden-cursor a,
+.pointer-tail-hidden-cursor button,
+.pointer-tail-hidden-cursor canvas,
+.pointer-tail-hidden-cursor div,
+.pointer-tail-hidden-cursor img,
+.pointer-tail-hidden-cursor span {
+  cursor: none !important;
+}

@@ -1,0 +1,20 @@
+title: Pointer Tail
+author: Amice + Codex
+version: 0.1.0
+quarto-required: ">=1.2.198"
+contributes:
+  revealjs-plugins:
+    - name: RevealPointerTail
+      script: pointer-tail.js
+      stylesheet: pointer-tail.css
+      config:
+        pointer-tail:
+          key: "q"
+          color: "var(--mit-red, red)"
+          pointerSize: 12
+          trailLength: 2
+          trailFalloff: 0.65
+          trailTaper: 0.82
+          smoothing: 0.36
+          headOpacity: 0.78
+          alwaysVisible: false
